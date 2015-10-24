@@ -16,7 +16,7 @@ var clean = function() {
 
 // Periodically removes offline users.
 setInterval(function() {
-    queryEvents();
+    clean();
 }, userLifetime * 1000);
 
 module.exports = {
