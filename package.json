@@ -14,11 +14,12 @@
     "url": "https://github.com/andreimuntean/StalkerServer"
   },
   "dependencies": {
-    "body-parser": "^1.13.3",
-    "express": "^4.13.3"
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*"
   },
   "devDependencies": {
-    "mocha": "^2.3.0"
+    "mocha": "*"
   },
   "private": true,
   "license": "MIT"

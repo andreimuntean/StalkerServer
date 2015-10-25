@@ -1,5 +1,9 @@
 var app = require('express')();
 var bodyParser = require('body-parser');
+var cors = require('cors');
+
+// Enables cross-origin resource sharing.
+app.use(cors());
 
 // For parsing JSON data.
 app.use(bodyParser.json());
