@@ -9,7 +9,7 @@ var clean = function() {
 
     for (var key in groups) {
         groups[key] = groups[key].filter(function(user) {
-            return user.Time > pastDate.getTime();
+            return user["Time"] > pastDate.getTime();
         });
     }
 }
@@ -33,7 +33,7 @@ module.exports = {
         for (var index = 0; index < groups[groupName].length; ++index) {
             var existingUser = groups[groupName][index];
 
-            if (existingUser.Name == user.Name) {
+            if (existingUser["Name"] == user["Name"]) {
                 groups[groupName][index] = user;
 
                 return;
