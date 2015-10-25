@@ -2,14 +2,14 @@
 var groups = [];
 
 // Measured in seconds.
-var userLifetime = 10;
+var userLifetime = 20;
 
 var clean = function() {
     var pastDate = new Date((new Date()).getTime() - userLifetime * 1000);
 
     for (var key in groups) {
         groups[key] = groups[key].filter(function(user) {
-            return user.time > userLifetime;
+            return user.Time > pastDate.getTime();
         });
     }
 }
@@ -25,16 +25,21 @@ module.exports = {
     },
     updateUser: function(user, groupName, res) {
         user["Time"] = Date.now();
-        groups[groupName].push(user);
-    },
-    clean: function() {
-        var seconds = 10;
-        var pastDate = new Date((new Date()).getTime() - seconds * 1000);
 
-        for (var key in groups) {
-            groups[key] = groups[key].filter(function(user) {
-                return user.time > pastDate;
-            });
+        if (groups[groupName] == null) {
+            groups[groupName] = [];
         }
+
+        for (var index = 0; index < groups[groupName].length; ++index) {
+            var existingUser = groups[groupName][index];
+
+            if (existingUser.Name == user.Name) {
+                groups[groupName][index] = user;
+
+                return;
+            }
+        }
+
+        groups[groupName].push(user);
     }
 };

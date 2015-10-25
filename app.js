@@ -24,6 +24,7 @@ app.post('/:groupName', function(req, res) {
     var user = req.body;
 
     groupService.updateUser(user, groupName, res);
+    res.end("OK");
 });
 
 // Starts the server.
