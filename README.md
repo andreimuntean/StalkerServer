@@ -1,2 +1,2 @@
 # StalkerServer
-Server for the Stalker (*code name*) application
+Server for the Stalker application.
